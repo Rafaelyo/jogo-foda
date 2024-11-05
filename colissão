@@ -1,1 +1,4 @@
-
+// Verifica colisão com um retângulo ao redor de "objeto 1"
+if (collision_rectangle(x, y, x + largura, y + altura, obj_objeto2, false, false)) {
+    show_message("Colisão detectada!");
+}
