@@ -1,20 +1,3 @@
-// Verificando limites da tela (room)
-var largura_tela = room_width;
-var altura_tela = room_height;
-
-if (x < 0) {
-    x = 0;  // Impede que o player ultrapasse a borda esquerda
-}
-if (x > largura_tela) {
-    x = largura_tela;  // Impede que o player ultrapasse a borda direita
-}
-
-if (y < 0) {
-    y = 0;  // Impede que o player ultrapasse a borda superior
-}
-if (y > altura_tela) {
-    y = altura_tela;  // Impede que o player ultrapasse a borda inferior
-}
 
 // Verificando limites da tela (room)
 var largura_tela = room_width;
@@ -29,3 +12,36 @@ if (keyboard_check(vk_left)) {
         x -= velocidade;
     }
 }
+
+// Movimento para cima
+if (keyboard_check(vk_up)) {
+    if (y - velocidade >= 0) {  // Impede que o player ultrapasse a borda superior
+        y -= velocidade;
+    }
+}
+
+// Movimento para baixo
+if (keyboard_check(vk_down)) {
+    if (y + velocidade <= altura_tela) {  // Impede que o player ultrapasse a borda inferior
+        y += velocidade;
+    }
+}
+
+// Defina a altura da janela do jogo
+var screen_height = display_get_height();
+
+// Verifique se a posição Y do player está além do limite inferior
+if (y > screen_height - sprite_height) {
+    y = screen_height - sprite_height;  // Ajuste a posição Y do player para a borda inferior
+}
+
+// Verificando colisões com paredes ou obstáculos
+var velocidade = 4; // Velocidade do player
+// Defina a largura da janela do jogo
+var screen_width = display_get_width();
+
+// Verifique se a posição X do player ultrapassou a borda direita
+if (x > screen_width - sprite_width) {
+    x = screen_width - sprite_width;  // Ajuste a posição X do player para a borda direita
+}
+
