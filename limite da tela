@@ -1,0 +1,31 @@
+// Verificando limites da tela (room)
+var largura_tela = room_width;
+var altura_tela = room_height;
+
+if (x < 0) {
+    x = 0;  // Impede que o player ultrapasse a borda esquerda
+}
+if (x > largura_tela) {
+    x = largura_tela;  // Impede que o player ultrapasse a borda direita
+}
+
+if (y < 0) {
+    y = 0;  // Impede que o player ultrapasse a borda superior
+}
+if (y > altura_tela) {
+    y = altura_tela;  // Impede que o player ultrapasse a borda inferior
+}
+
+// Verificando limites da tela (room)
+var largura_tela = room_width;
+var altura_tela = room_height;
+
+// Movimentação com as teclas de direção
+var velocidade = 4; // Velocidade do personagem
+
+// Movimento para a esquerda
+if (keyboard_check(vk_left)) {
+    if (x - velocidade >= 0) {  // Impede que o player ultrapasse a borda esquerda
+        x -= velocidade;
+    }
+}
