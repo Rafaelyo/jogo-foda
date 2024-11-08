@@ -1,0 +1,13 @@
+// Evento Step do obj_inimigo
+
+// Mover o inimigo com base na direção
+x += velocidade * direcao;
+
+// Verificar se o inimigo atingiu os limites da patrulha
+if (x <= limite_esquerda) {
+    direcao = 1; // Muda para a direção direita
+    image_xscale = 1; // Espelha o sprite para a direita, se necessário
+} else if (x >= limite_direita) {
+    direcao = -1; // Muda para a direção esquerda
+    image_xscale = -1; // Espelha o sprite para a esquerda, se necessário
+}
